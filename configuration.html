@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://oprypin.github.io/mkdocstrings-crystal/configuration.html">
       
       <link rel="shortcut icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3b61ea93.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.15aa0b43.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.75751829.min.css">
         
           
           
@@ -277,7 +277,7 @@
 
   <li class="md-nav__item">
     <a href="quickstart/ci.html" class="md-nav__link">
-      CI
+      Continuous build and publishing
     </a>
   </li>
 
@@ -526,7 +526,7 @@
                 
                 <h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">#</a></h1>
 <h2 id="handler-options">Handler options<a class="headerlink" href="#handler-options" title="Permanent link">#</a></h2>
-<p>(See also: <a href="https://pawamoy.github.io/mkdocstrings/usage/#global-options">mkdocstrings global options</a>)</p>
+<p>(See also: <a href="https://pawamoy.github.io/mkdocstrings/usage/#global-options"><em>mkdocstrings</em> global options</a>)</p>
 <h3 id="crystal_docs_flags"><code>crystal_docs_flags:</code><a class="headerlink" href="#crystal_docs_flags" title="Permanent link">#</a></h3>
 <p>A list of command line arguments to pass to <code>crystal doc</code>. Mainly used to choose the source directories.</p>
 <p><em>The above option is global-only, while the ones below can also apply per-identifier.</em></p>
@@ -535,7 +535,7 @@
 <dt><code>nested_types:</code> (<code>true</code> / <strong><code>false</code></strong>)</dt>
 <dd>Set to <code>true</code> to also recursively render all <code>Foo::Sub::Types</code> whenever rendering a given class <code>Foo</code>.</dd>
 <dt><code>file_filters:</code> [list of strings]</dt>
-<dd>If a particular module spans over several files, you might want to choose to render only the sub-items (see <code>nested_types</code>) that came from a particular file. These patterns ared regular expressions (not anchored) applied to the file path. Negating the patterns is done by starting it with <code>!</code> (which is then excluded from the following regex).</dd>
+<dd>If a particular module spans over several files, you might want to choose to render only the sub-items (see <code>nested_types</code>) that came from a particular file. These patterns are regular expressions (not anchored) applied to the file path. Negating the patterns is done by starting it with <code>!</code> (which is then excluded from the following regex). This is very similar to <a href="https://pawamoy.github.io/mkdocstrings/reference/handlers/python/#mkdocstrings.handlers.python.PythonCollector.default_config">what's done in <em>mkdocstrings</em></a></dd>
 </dl>
 <h3 id="rendering"><code>rendering:</code><a class="headerlink" href="#rendering" title="Permanent link">#</a></h3>
 <ul>
@@ -606,7 +606,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                CI
+                Continuous build and publishing
               </div>
             </div>
           </a>
@@ -645,8 +645,8 @@
       
     </div>
     
-      <script src="assets/javascripts/vendor.08c56446.min.js"></script>
-      <script src="assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({

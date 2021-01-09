@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://oprypin.github.io/mkdocstrings-crystal/index.html">
       
       <link rel="shortcut icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3b61ea93.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.15aa0b43.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.75751829.min.css">
         
           
           
@@ -354,7 +354,7 @@
 
   <li class="md-nav__item">
     <a href="quickstart/ci.html" class="md-nav__link">
-      CI
+      Continuous build and publishing
     </a>
   </li>
 
@@ -531,7 +531,7 @@
 </code></pre></div>
 <p><a href="quickstart/index.html">Continue with <strong>quickstart</strong></a>.</p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
-<p>Crystal has <a href="https://crystal-lang.org/reference/using_the_compiler/#crystal-docs">its own easy-to-use generator of API documentation sites</a>, but it's very rigid, as it doesn't attempt to do anything other than API documentation, so <a href="https://crystal-lang.org/api/">these sites</a> end up being very isolated and prevent the author from presenting some kind of <em>story</em> about using their library.</p>
+<p>Crystal has <a href="https://crystal-lang.org/reference/using_the_compiler/#crystal-docs">its own easy-to-use generator of API documentation sites</a>, but it's very rigid, as it doesn't attempt to do anything other than API documentation, so <a href="https://crystal-lang.org/api/0.35.1/Process.html">these sites</a> end up being very isolated and prevent the author from presenting some kind of <em>story</em> about using their library.</p>
 <p>Instead, this plugin is all about that <em>story</em>. It's very inspiring to look at <a href="https://docs.python.org/3/library/subprocess.html">Python's documentation for <code>subprocess</code></a>, and hard to imagine a world in which this document is just an alphabetic dump of the functions in it.</p>
 <p>So (matching the <a href="https://pawamoy.github.io/mkdocstrings/usage/">idea behind <em>mkdocstrings</em></a> but for Crystal), this allows you to just write textual documentation in Markdown and, in the middle of it, mention any identifier of a Crystal type, method etc., and have its API documentation (signature and doc comment) printed out right there.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
@@ -559,7 +559,8 @@
 ::: Foo::CONSTANT
 </code></pre></div>
 <p>-- and in the output this will be replaced with generated API documentation for it, much like Crystal's own doc generator does.</p>
-<p>This, of course, happens as part of a normal MkDocs build process:</p>
+<p>Learn more about this syntax: <a href="https://pawamoy.github.io/mkdocstrings/usage/">in <em>mkdocstrings</em> in general</a> (Crystal specifics are below).</p>
+<p>The auto-replacement, of course, happens as part of a normal MkDocs build process:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$</span> mkdocs build  <span class="c1"># generate from docs/ into site/</span>
 <span class="gp">$</span> mkdocs serve  <span class="c1"># live preview</span>
 </code></pre></div>
@@ -567,7 +568,7 @@
 <p>The syntax for these "callouts" is almost exactly the same as in Crystal's own doc comments. As you may also know, if you <strong>mention an identifier in backticks within a doc comment (e.g. <code>`SomeClass#some_method`</code>)</strong>, Crystal's doc generator will cross-link to it. The same also works seamlessly here, and you don't need to change anything (other than possible edge cases).</p>
 <p>But another powerful feature of this plugin is that you can <strong><a href="https://pawamoy.github.io/mkdocstrings/usage/#cross-references">cross-reference</a> items like this <em>anywhere</em> on the site</strong>, not just in doc comments. But the syntax is <strong><code>[SomeClass#some_method][]</code></strong> instead. Or <code>[with custom text][SomeClass#some_method]</code>. Note, though, that currently this cross-reference syntax is quite rigid, and you need to specify the exact absolute identifier as <em>mkdocstrings-crystal</em> determines it. To find that out, you could click on the wanted item in the navigation and then copy the anchor part from the URL bar -- the part after (not including) <code>#</code>.</p>
 <h2 id="usage-details">Usage details<a class="headerlink" href="#usage-details" title="Permanent link">#</a></h2>
-<p>We have been talking about seamlessly inserting Crystal documentation, but where is it coming from? The implementation actually still uses <code>crystal doc</code> generator but through <a href="https://github.com/crystal-lang/crystal/pull/4746">its JSON output</a>. So the requirement is the same: the source code that the doc comments and signatures are coming from is assumed to be somewhere under the <em>src/</em> directory. If that isn't appropriate, you can select the wanted entry files by passing them to <code>crystal doc</code>, as part of <a href="configuration.html#crystal_docs_flags"><code>crystal_docs_flags</code></a> (<a href="https://github.com/oprypin/athena-website/blob/c06906d5933421120c76e15fd6f529eeb5c48221/mkdocs.yml#L33">example</a>).</p>
+<p>We have been talking about seamlessly inserting Crystal documentation, but where is it coming from? The implementation actually still uses <code>crystal doc</code> generator but through <a href="https://github.com/crystal-lang/crystal/pull/4746">its JSON output</a>. So the requirement is the same: the source code that the doc comments and signatures are coming from is assumed to be somewhere under the <em>src/</em> directory. If that isn't appropriate, you can select the wanted entry files by passing them to <code>crystal doc</code>, as part of <a href="configuration.html#crystal_docs_flags"><code>crystal_docs_flags</code></a> (see "Custom source directories" <a href="showcase.html#athena-framework">in Showcase</a>).</p>
 <p>Continue to <a href="configuration.html">Configuration</a>.</p>
                 
               
@@ -621,8 +622,8 @@
       
     </div>
     
-      <script src="assets/javascripts/vendor.08c56446.min.js"></script>
-      <script src="assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({

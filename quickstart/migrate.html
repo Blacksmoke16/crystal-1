@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://oprypin.github.io/mkdocstrings-crystal/quickstart/migrate.html">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.15aa0b43.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.75751829.min.css">
         
           
           
@@ -309,8 +309,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#add-a-normal-page" class="md-nav__link">
+    Add a normal page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#view-the-site" class="md-nav__link">
     View the site
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-navigation-long-term" class="md-nav__link">
+    Setting up navigation long-term
   </a>
   
 </li>
@@ -350,7 +364,7 @@
 
   <li class="md-nav__item">
     <a href="ci.html" class="md-nav__link">
-      CI
+      Continuous build and publishing
     </a>
   </li>
 
@@ -484,8 +498,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#add-a-normal-page" class="md-nav__link">
+    Add a normal page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#view-the-site" class="md-nav__link">
     View the site
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-navigation-long-term" class="md-nav__link">
+    Setting up navigation long-term
   </a>
   
 </li>
@@ -525,6 +553,8 @@
   <span class="k">end</span>
 
   <span class="c1"># Description of *g*</span>
+  <span class="c1">#</span>
+  <span class="c1"># See also: `Bar#f`</span>
   <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">bar</span> <span class="p">:</span> <span class="n">Bar</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
@@ -532,7 +562,7 @@
 </details>
 <p>Hosting on GitHub is also assumed, though that's easy to adapt.</p>
 <p>We'll be working from the project's root directory (the one that <em>contains</em> <code>src</code>).</p>
-<p><a href="https://github.com/oprypin/mkdocstrings-crystal/examples/migrated/">View the final file layout</a></p>
+<p><a href="https://github.com/oprypin/mkdocstrings-crystal/tree/master/examples/migrated/">View the final file layout</a></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">#</a></h2>
 <p>The dependencies that we'll be using can be installed like this:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$</span> pip install mkdocs-material mkdocstrings-crystal mkdocs-gen-files mkdocs-literate-nav mkdocs-section-index
@@ -541,10 +571,7 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>You might want to install these in a <a href="https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment">virtualenv</a> (i.e. localized just to this project). Otherwise, they go to <code>~/.local/lib/python*</code>.</p>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Check out how to <a href="python-dependencies.html">manage Python dependencies</a> long-term.</p>
+<p>And check out how to <strong><a href="python-dependencies.html">manage Python dependencies</a></strong> long-term.</p>
 </div>
 <h2 id="base-config">Base config<a class="headerlink" href="#base-config" title="Permanent link">#</a></h2>
 <p>Let's configure <a href="https://www.mkdocs.org/">MkDocs</a> with <em>mkdocstrings-crystal</em>. Add/merge this config as your <code>mkdocs.yml</code>:</p>
@@ -557,6 +584,9 @@
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">material</span>
   <span class="nt">icon</span><span class="p">:</span>
     <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">fontawesome/brands/github</span>
+
+<span class="nt">extra_css</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">css/mkdocstrings.css</span>
 
 <span class="nt">plugins</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">search</span>
@@ -578,7 +608,7 @@
 </code></pre></div>
 </details>
 <details class="question" open="open"><summary>Why configure like this</summary><dl>
-<dt><a href="https://github.com/oprypin/mkdocs-gen-files"><code>gen-files</code> plugin</a></dt>
+<dt><a href="https://oprypin.github.io/mkdocs-gen-files"><code>gen-files</code> plugin</a></dt>
 <dd>Crystal's API generator automatically creates one HTML file per Crystal class. <em>mkdocstrings</em> doesn't do anything like that by itself, instead giving you the ability to <a href="../index.html#introduction">present a <em>story</em></a> and perhaps mention several items per page. However, in this guide we choose to do a 1:1 migration and don't want to manually create all those pages (e.g. a page <code>Foo/Bar/index.md</code> containing just <code>::: Foo::Bar</code>, so on and so on). <a href="#generate-doc-stub-pages">Continued</a></dd>
 <dt><a href="https://github.com/oprypin/mkdocs-literate-nav"><code>literate-nav</code> plugin</a></dt>
 <dd>Right now it's not doing anything, we'll get back to it.</dd>
@@ -586,6 +616,10 @@
 <dd>In Crystal's API doc sites we are used to having double functionality behind clicking an item in the left side navigation: it both opens a type's page and expands its sub-types. Well, in MkDocs world that's very much non-standard. But we bring that back with this plugin.</dd>
 <dt><code>deduplicate-toc</code> extension</dt>
 <dd>This is actually an integral part of <em>mkdocstrings-crystal</em>. <a href="../extras.html#deduplicate-toc-extension">Read more</a>.</dd>
+<dt><code>toc: permalink: "#"</code></dt>
+<dd>Add an "#" anchor link after every heading so it's easy to link back to it. Not required, but very common, and Crystal doc generator does it too.</dd>
+<dt><code>extra_css</code></dt>
+<dd>Don't forget to copy and include the <a href="../styling.html#recommended-styles">recommended styles</a>.</dd>
 </dl>
 </details>
 <div class="admonition important">
@@ -612,19 +646,35 @@
 </code></pre></div>
 </details>
 <p>This script is picked up to run seamlessly as part of the normal site build, because we had configured the <a href="https://github.com/oprypin/mkdocs-gen-files"><code>gen-files</code> plugin</a>, which is already explained above.</p>
-<details class="tip"><summary>More advanced examples of such scripts</summary><ul>
-<li><a href="https://github.com/oprypin/crsfml/blob/master/tools/gen_doc_files.py">In CrSFML</a></li>
-<li><a href="https://github.com/oprypin/athena-website/blob/mkdocstrings/gen_doc_stubs.py">In Athena</a></li>
-</ul>
+<details class="tip"><summary>Tip</summary><p>Find more advanced examples of such scripts in <a href="../showcase.html">Showcase</a>.</p>
 </details>
+<h2 id="add-a-normal-page">Add a normal page<a class="headerlink" href="#add-a-normal-page" title="Permanent link">#</a></h2>
+<details class="example" open="open"><summary>docs/index.md</summary><div class="highlight"><pre><span></span><code><span class="gh"># Introduction</span>
+
+Welcome to my project!
+
+Make sure to check out the [<span class="nt">API documentation</span>](<span class="na">Foo/</span>), particularly [<span class="nt">Foo#g(bar)</span>][].
+</code></pre></div>
+</details>
+<p>We linked directly to an identifier here, and <em>mkdocstrings</em> knows which page it's on and automatically links that. See: <a href="../index.html#identifier-linking-syntax">identifier linking syntax</a>.</p>
 <h2 id="view-the-site">View the site<a class="headerlink" href="#view-the-site" title="Permanent link">#</a></h2>
 <p>That's it -- we're ready!</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$</span> mkdocs build  <span class="c1"># generate from docs/ into site/</span>
 <span class="gp">$</span> mkdocs serve  <span class="c1"># live preview</span>
 </code></pre></div>
+<h2 id="setting-up-navigation-long-term">Setting up navigation long-term<a class="headerlink" href="#setting-up-navigation-long-term" title="Permanent link">#</a></h2>
+<p>This is finally where the <em>literate-nav</em> plugin comes in. Eventually you'll want to define an order for your pages to appear in the navigation, but if you have so many generated API doc pages, that becomes infeasible. MkDocs doesn't have any way to infer only <em>parts</em> of the navigation, only all or nothing. So, let's start a nav file.</p>
+<details class="example" open="open"><summary>docs/SUMMARY.md</summary><div class="highlight"><pre><span></span><code><span class="k">*</span> [<span class="nt">Introduction</span>](<span class="na">index.md</span>)
+<span class="k">*</span> [<span class="nt">API</span>](<span class="na">Foo/</span>)
+</code></pre></div>
+</details>
+<p>First presumably you'd have a concrete list of pages, and as the last item, perhaps you'd leave the whole <code>Foo/</code> sub-structure to be inferred.</p>
+<p>See "Partly inferred nav" examples <a href="../showcase.html#athena-framework">in Showcase</a>.</p>
+<p>Also check out the <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-tabs">"navigation tabs"</a> theme feature.</p>
 <h2 id="really-preserving-the-urls">Really preserving the URLs<a class="headerlink" href="#really-preserving-the-urls" title="Permanent link">#</a></h2>
-<p>We've been generating URLs such as <code>/Foo/Bar/</code> (really <code>/Foo/Bar/index.html</code>). But to actually keep all the URLs exactly like <code>crystal doc</code>'s site (for a non-breaking migration), we choose to make them look like <code>/Foo/Bar.html</code> instead.</p>
-<p>Add this to the top of <code>mkdocs.yml</code>:</p>
+<p>(This is optional.)</p>
+<p>We've been generating URLs such as <code>/Foo/Bar/</code> (or <code>/Foo/Bar/index.html</code>). But to actually keep all the URLs exactly like <code>crystal doc</code>'s site (for a non-breaking migration), we choose to make them look like <code>/Foo/Bar.html</code> instead.</p>
+<p>Add this to the top of <code>mkdocs.yml</code> -- this is the actual change making it so:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">use_directory_urls</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
 <p>But if you make this change by itself, MkDocs will no longer be able to group them into subsections nicely by default; it just doesn't see <code>/Foo.md</code> as the index page for the section containing <code>/Foo/*.md</code>, instead they'll be confusingly split into two.</p>
@@ -719,8 +769,8 @@
       
     </div>
     
-      <script src="../assets/javascripts/vendor.08c56446.min.js"></script>
-      <script src="../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({

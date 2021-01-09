@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://oprypin.github.io/mkdocstrings-crystal/quickstart/index.html">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.15aa0b43.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.75751829.min.css">
         
           
           
@@ -279,7 +279,7 @@
 
   <li class="md-nav__item">
     <a href="ci.html" class="md-nav__link">
-      CI
+      Continuous build and publishing
     </a>
   </li>
 
@@ -406,8 +406,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#add-an-api-doc-page" class="md-nav__link">
+    Add an API doc page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-normal-page" class="md-nav__link">
+    Add a normal page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#view-the-site" class="md-nav__link">
     View the site
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next steps
   </a>
   
 </li>
@@ -424,7 +445,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/oprypin/mkdocstrings-crystal/blob/master/docs/quickstart/README.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/oprypin/mkdocstrings-crystal/blob/master/docs/quickstart/index.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -440,6 +461,8 @@
   <span class="k">end</span>
 
   <span class="c1"># Description of *g*</span>
+  <span class="c1">#</span>
+  <span class="c1"># See also: `Bar#f`</span>
   <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">bar</span> <span class="p">:</span> <span class="n">Bar</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
@@ -447,7 +470,7 @@
 </details>
 <p>Hosting on GitHub is also assumed, though that's easy to adapt.</p>
 <p>We'll be working from the project's root directory (the one that <em>contains</em> <code>src</code>).</p>
-<p><a href="https://github.com/oprypin/mkdocstrings-crystal/examples/modern/">View the final file layout</a></p>
+<p><a href="https://github.com/oprypin/mkdocstrings-crystal/tree/master/examples/simple/">View the final file layout</a></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">#</a></h2>
 <p>The dependencies that we'll be using can be installed like this:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$</span> pip install mkdocs-material mkdocstrings-crystal
@@ -456,10 +479,7 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>You might want to install these in a <a href="https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment">virtualenv</a> (i.e. localized just to this project).</p>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Check out how to <a href="python-dependencies.html">manage Python dependencies</a> long-term.</p>
+<p>And check out how to <strong><a href="python-dependencies.html">manage Python dependencies</a></strong> long-term.</p>
 </div>
 <h2 id="base-config">Base config<a class="headerlink" href="#base-config" title="Permanent link">#</a></h2>
 <p>Let's configure <a href="https://www.mkdocs.org/">MkDocs</a> with <em>mkdocstrings-crystal</em>. Add/merge this config as your <code>mkdocs.yml</code>:</p>
@@ -472,6 +492,9 @@
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">material</span>
   <span class="nt">icon</span><span class="p">:</span>
     <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">fontawesome/brands/github</span>
+
+<span class="nt">extra_css</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">css/mkdocstrings.css</span>
 
 <span class="nt">plugins</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">search</span>
@@ -490,24 +513,54 @@
 </code></pre></div>
 </details>
 <details class="question" open="open"><summary>Why configure like this</summary><dl>
+<dt><code>theme:</code> <code>material</code></dt>
+<dd><a href="https://squidfunk.github.io/mkdocs-material/">material</a> is the only supported <a href="https://www.mkdocs.org/user-guide/styling-your-docs/#third-party-themes">MkDocs theme</a>.</dd>
+<dt><code>repo_url</code> and <code>icon</code></dt>
+<dd>Link back to your repository nicely. <a href="https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/">See more</a>.</dd>
+<dt><code>extra_css</code></dt>
+<dd>Don't forget to copy and include the <a href="../styling.html#recommended-styles">recommended styles</a>.</dd>
+<dt><code>mkdocstrings:</code> <code>default_handler: crystal</code></dt>
+<dd>Activate the upstream <em>mkdocstrings</em> plugin and tell it to collect items from Crystal, not Python, by default.</dd>
+<dt><code>watch: [src]</code></dt>
+<dd>Watch a directory for <a href="https://pawamoy.github.io/mkdocstrings/usage/#watch-directories">auto-reload</a>. Assuming the sources are under <code>src/</code>.</dd>
 <dt><a href="https://facelessuser.github.io/pymdown-extensions/"><code>pymdownx.*</code> extensions</a></dt>
 <dd>Python-Markdown is an "old-school" Markdown parser, and these extensions bring the defaults more in line with what people are used to now.</dd>
 <dt><code>deduplicate-toc</code> extension</dt>
 <dd>This is actually an integral part of <em>mkdocstrings-crystal</em>. <a href="../extras.html#deduplicate-toc-extension">Read more</a>.</dd>
 </dl>
 </details>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>The "literate-nav" plugin must appear <em>before</em> "section-index" in the list, because it overwrites the nav.</p>
-</div>
+<h2 id="add-an-api-doc-page">Add an API doc page<a class="headerlink" href="#add-an-api-doc-page" title="Permanent link">#</a></h2>
+<details class="example" open="open"><summary>docs/api.md</summary><div class="highlight"><pre><span></span><code><span class="gh"># module Foo</span>
+
+The main class in our library is <span class="sb">`Bar`</span>.
+
+::: Foo::Bar
+
+---
+
+There is also a helper function:
+
+::: Foo#g
+</code></pre></div>
+</details>
+<h2 id="add-a-normal-page">Add a normal page<a class="headerlink" href="#add-a-normal-page" title="Permanent link">#</a></h2>
+<details class="example" open="open"><summary>docs/index.md</summary><div class="highlight"><pre><span></span><code><span class="gh"># Introduction</span>
+
+Welcome to my project!
+
+See [<span class="nt">the API documentation</span>](<span class="na">api.md</span>). Make sure to check out [<span class="nt">Foo#g(bar)</span>][].
+</code></pre></div>
+</details>
+<p>We linked directly to an identifier here, and <em>mkdocstrings</em> knows which page it's on and automatically links that. See: <a href="../index.html#identifier-linking-syntax">identifier linking syntax</a>.</p>
 <h2 id="view-the-site">View the site<a class="headerlink" href="#view-the-site" title="Permanent link">#</a></h2>
 <p>That's it -- we're ready!</p>
 <div class="highlight"><pre><span></span><code>mkdocs build  <span class="c1"># generate from docs/ into site/</span>
 mkdocs serve  <span class="c1"># live preview</span>
 </code></pre></div>
-<!--If youmigrate.html#base-config-->
-
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">#</a></h2>
 <p>If you find that you have too many classes and you don't want to manually create files with callouts to them, there are ways to automate it, and good examples are in <a href="migrate.html#base-config">the migration-oriented guide</a>.</p>
+<p>Otherwise, you're encouraged to curate per-topic pages with your API items. See "Manually curated docs page" <a href="../showcase.html#crystal-chipmunk">in Showcase</a> for examples.</p>
+<p>And you'll probably want to <a href="https://www.mkdocs.org/user-guide/configuration/#documentation-layout">set up a navigation config</a> anyway.</p>
                 
               
               
@@ -574,8 +627,8 @@ mkdocs serve  <span class="c1"># live preview</span>
       
     </div>
     
-      <script src="../assets/javascripts/vendor.08c56446.min.js"></script>
-      <script src="../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({

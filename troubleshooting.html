@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://oprypin.github.io/mkdocstrings-crystal/troubleshooting.html">
       
       <link rel="shortcut icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3b61ea93.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.15aa0b43.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.75751829.min.css">
         
           
           
@@ -277,7 +277,7 @@
 
   <li class="md-nav__item">
     <a href="quickstart/ci.html" class="md-nav__link">
-      CI
+      Continuous build and publishing
     </a>
   </li>
 
@@ -396,6 +396,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#it-takes-too-long-to-build-the-site" class="md-nav__link">
+    It takes too long to build the site
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-generated-documentation-does-not-look-good" class="md-nav__link">
     The generated documentation does not look good
   </a>
@@ -501,6 +508,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#it-takes-too-long-to-build-the-site" class="md-nav__link">
+    It takes too long to build the site
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-generated-documentation-does-not-look-good" class="md-nav__link">
     The generated documentation does not look good
   </a>
@@ -548,6 +562,10 @@
 <p><a href="quickstart/migrate.html#really-preserving-the-urls">See also</a>.</p>
 <h3 id="nav-items-are-separated-depending-on-if-they-have-sub-items">Nav items are separated depending on if they have sub-items<a class="headerlink" href="#nav-items-are-separated-depending-on-if-they-have-sub-items" title="Permanent link">#</a></h3>
 <p>In a deeply nested nav, it is best to stick to naming every file as <code>index.md</code> and making it the only one per directory. Then all items get treated equally during sorting. Or you can just define the <code>nav</code> yourself explicitly.</p>
+<h2 id="it-takes-too-long-to-build-the-site">It takes too long to build the site<a class="headerlink" href="#it-takes-too-long-to-build-the-site" title="Permanent link">#</a></h2>
+<p>Yes, it's slow, especially for large codebases. The main thing, though, is that MkDocs was not optimized to handle sites with so so many pages. That is, <a href="https://github.com/mkdocs/mkdocs/pulls?q=is%3Apr+author%3Aoprypin+profile">until I optimized it</a>, but that hasn't made it into a release yet. Expect about a 2x speedup then. Or install the preview now:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> pip install -U git+https://github.com/mkdocs/mkdocs.git@refs/pull/2272/head
+</code></pre></div>
 <h2 id="the-generated-documentation-does-not-look-good">The generated documentation does not look good<a class="headerlink" href="#the-generated-documentation-does-not-look-good" title="Permanent link">#</a></h2>
 <p>Note that only <a href="https://squidfunk.github.io/mkdocs-material/">mkdocs-material</a> theme is supported.</p>
 <p>You can always <a href="styling.html">customize the styles with CSS</a>, but make sure you've applied the default recommended style!</p>
@@ -621,8 +639,8 @@
       
     </div>
     
-      <script src="assets/javascripts/vendor.08c56446.min.js"></script>
-      <script src="assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
