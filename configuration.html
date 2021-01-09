@@ -9,19 +9,21 @@
       
       
       
-      <link rel="shortcut icon" href="/mkdocstrings-crystal/assets/images/favicon.png">
+        <link rel="canonical" href="https://oprypin.github.io/mkdocstrings-crystal/configuration.html">
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
-        <title>mkdocstrings-crystal</title>
+        <title>Configuration - mkdocstrings-crystal</title>
       
     
     
-      <link rel="stylesheet" href="/mkdocstrings-crystal/assets/stylesheets/main.3b61ea93.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.3b61ea93.min.css">
       
         
-        <link rel="stylesheet" href="/mkdocstrings-crystal/assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.39b8e14a.min.css">
         
           
           
@@ -40,7 +42,7 @@
     
     
     
-      <link rel="stylesheet" href="/mkdocstrings-crystal/css/style.css">
+      <link rel="stylesheet" href="css/style.css">
     
     
       
@@ -62,6 +64,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#configuration" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -91,7 +98,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              
+              Configuration
             
           </span>
         </div>
@@ -196,7 +203,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/mkdocstrings-crystal/index.html" class="md-nav__link">
+    <a href="index.html" class="md-nav__link">
       Introduction
     </a>
   </li>
@@ -217,7 +224,7 @@
     <label class="md-nav__link" for="nav-2">
       <span class="md-nav__icon md-icon"></span>
       
-        <a href="/mkdocstrings-crystal/quickstart/index.html" class="md-nav__link"
+        <a href="quickstart/index.html" class="md-nav__link"
           style="margin: initial; padding: initial; pointer-events: initial">
       
         Quickstart
@@ -227,7 +234,7 @@
       <label class="md-nav__title" for="nav-2">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="/mkdocstrings-crystal/quickstart/index.html" class="md-nav__link"
+          <a href="quickstart/index.html" class="md-nav__link"
             style="margin: initial; padding: initial; pointer-events: initial">
         
           Quickstart
@@ -243,7 +250,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/mkdocstrings-crystal/quickstart/migrate.html" class="md-nav__link">
+    <a href="quickstart/migrate.html" class="md-nav__link">
       Migrate from `crystal doc`
     </a>
   </li>
@@ -256,7 +263,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/mkdocstrings-crystal/quickstart/python-dependencies.html" class="md-nav__link">
+    <a href="quickstart/python-dependencies.html" class="md-nav__link">
       Managing Python dependencies
     </a>
   </li>
@@ -269,7 +276,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/mkdocstrings-crystal/quickstart/ci.html" class="md-nav__link">
+    <a href="quickstart/ci.html" class="md-nav__link">
       CI
     </a>
   </li>
@@ -285,11 +292,88 @@
       
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="/mkdocstrings-crystal/configuration.html" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="configuration.html" class="md-nav__link md-nav__link--active"
+            style="margin: initial; padding: initial; pointer-events: initial">
+        
+          Configuration
+        </a>
+      </label>
+    
+    <a href="configuration.html" class="md-nav__link md-nav__link--active">
       Configuration
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#handler-options" class="md-nav__link">
+    Handler options
+  </a>
+  
+    <nav class="md-nav" aria-label="Handler options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crystal_docs_flags" class="md-nav__link">
+    crystal_docs_flags:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selection" class="md-nav__link">
+    selection:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendering" class="md-nav__link">
+    rendering:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -300,7 +384,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/mkdocstrings-crystal/styling.html" class="md-nav__link">
+    <a href="styling.html" class="md-nav__link">
       Styling
     </a>
   </li>
@@ -313,7 +397,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/mkdocstrings-crystal/extras.html" class="md-nav__link">
+    <a href="extras.html" class="md-nav__link">
       Extras
     </a>
   </li>
@@ -326,7 +410,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/mkdocstrings-crystal/troubleshooting.html" class="md-nav__link">
+    <a href="troubleshooting.html" class="md-nav__link">
       Troubleshooting
     </a>
   </li>
@@ -339,7 +423,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/mkdocstrings-crystal/api.html" class="md-nav__link">
+    <a href="api.html" class="md-nav__link">
       Introspection API
     </a>
   </li>
@@ -352,7 +436,7 @@
 
 
   <li class="md-nav__item">
-    <a href="/mkdocstrings-crystal/showcase.html" class="md-nav__link">
+    <a href="showcase.html" class="md-nav__link">
       Showcase
     </a>
   </li>
@@ -365,12 +449,138 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#handler-options" class="md-nav__link">
+    Handler options
+  </a>
+  
+    <nav class="md-nav" aria-label="Handler options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crystal_docs_flags" class="md-nav__link">
+    crystal_docs_flags:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selection" class="md-nav__link">
+    selection:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendering" class="md-nav__link">
+    rendering:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
-
+                
+                  <a href="https://github.com/oprypin/mkdocstrings-crystal/blob/master/docs/configuration.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">#</a></h1>
+<h2 id="handler-options">Handler options<a class="headerlink" href="#handler-options" title="Permanent link">#</a></h2>
+<p>(See also: <a href="https://pawamoy.github.io/mkdocstrings/usage/#global-options">mkdocstrings global options</a>)</p>
+<h3 id="crystal_docs_flags"><code>crystal_docs_flags:</code><a class="headerlink" href="#crystal_docs_flags" title="Permanent link">#</a></h3>
+<p>A list of command line arguments to pass to <code>crystal doc</code>. Mainly used to choose the source directories.</p>
+<p><em>The above option is global-only, while the ones below can also apply per-identifier.</em></p>
+<h3 id="selection"><code>selection:</code><a class="headerlink" href="#selection" title="Permanent link">#</a></h3>
+<dl>
+<dt><code>nested_types:</code> (<code>true</code> / <strong><code>false</code></strong>)</dt>
+<dd>Set to <code>true</code> to also recursively render all <code>Foo::Sub::Types</code> whenever rendering a given class <code>Foo</code>.</dd>
+<dt><code>file_filters:</code> [list of strings]</dt>
+<dd>If a particular module spans over several files, you might want to choose to render only the sub-items (see <code>nested_types</code>) that came from a particular file. These patterns ared regular expressions (not anchored) applied to the file path. Negating the patterns is done by starting it with <code>!</code> (which is then excluded from the following regex).</dd>
+</dl>
+<h3 id="rendering"><code>rendering:</code><a class="headerlink" href="#rendering" title="Permanent link">#</a></h3>
+<ul>
+<li>
+<dl>
+<dt><code>show_source_links:</code> (<strong><code>true</code></strong> / <code>false</code>)</dt>
+<dd>Set to <code>false</code> to skip adding "<em>View source</em>" links after every method etc.</dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt><code>heading_level:</code> (<code>1</code>/<strong><code>2</code></strong>/<code>3</code>/<code>4</code>/<code>5</code>/<code>6</code>)</dt>
+<dd>Each inserted identifier gets an HTML heading. The default heading is <code>&lt;h2&gt;</code>, and sub-headings in it are shifted accordingly (so if you write headings in doc comments, you're welcome to start with <code>#</code> <code>&lt;h1&gt;</code>). You can change this heading level, either the default one or per-identifier.</dd>
+</dl>
+</li>
+</ul>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">#</a></h2>
+<div class="admonition example">
+<p class="admonition-title">A global config (part of mkdocs.yml)</p>
+<div class="highlight"><pre><span></span><code><span class="nt">plugins</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">mkdocstrings</span><span class="p">:</span>
+      <span class="nt">default_handler</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">crystal</span>
+      <span class="nt">watch</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">src</span><span class="p p-Indicator">]</span>
+      <span class="nt">handlers</span><span class="p">:</span>
+        <span class="nt">crystal</span><span class="p">:</span>
+          <span class="nt">crystal_docs_flags</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">src/bar.cr</span>
+            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">lib/foo/src/foo.cr</span>
+          <span class="nt">rendering</span><span class="p">:</span>
+            <span class="nt">show_source_links</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">A per-identifier config (a callout in a Markdown file)</p>
+<div class="highlight"><pre><span></span><code>::: SomeModule
+    selection:
+      nested_types: true
+      file_filters:
+        <span class="k">-</span> &#39;src/foo/[^/]+\.cr$&#39;
+    rendering:
+      heading_level: 3
+</code></pre></div>
+</div>
+                
+              
               
                 
 
@@ -383,6 +593,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="quickstart/ci.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                CI
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="styling.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Styling
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -400,15 +645,15 @@
       
     </div>
     
-      <script src="/mkdocstrings-crystal/assets/javascripts/vendor.08c56446.min.js"></script>
-      <script src="/mkdocstrings-crystal/assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
-          base: "/mkdocstrings-crystal",
+          base: ".",
           features: ['navigation.expand'],
           search: Object.assign({
-            worker: "/mkdocstrings-crystal/assets/javascripts/worker/search.8c7e0a7e.min.js"
+            worker: "assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
