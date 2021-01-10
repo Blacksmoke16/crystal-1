@@ -646,14 +646,17 @@
 </code></pre></div>
 </details>
 <p>This script is picked up to run seamlessly as part of the normal site build, because we had configured the <a href="https://github.com/oprypin/mkdocs-gen-files"><code>gen-files</code> plugin</a>, which is already explained above.</p>
-<details class="tip"><summary>Tip</summary><p>Find more advanced examples of such scripts in <a href="../showcase.html">Showcase</a>.</p>
-</details>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Find more advanced examples of such scripts in <a href="../showcase.html">Showcase</a>.</p>
+</div>
 <h2 id="add-a-normal-page">Add a normal page<a class="headerlink" href="#add-a-normal-page" title="Permanent link">#</a></h2>
 <details class="example" open="open"><summary>docs/index.md</summary><div class="highlight"><pre><span></span><code><span class="gh"># Introduction</span>
 
 Welcome to my project!
 
-Make sure to check out the [<span class="nt">API documentation</span>](<span class="na">Foo/</span>), particularly [<span class="nt">Foo#g(bar)</span>][].
+Make sure to check out the [<span class="nt">API documentation</span>](<span class="na">Foo/</span>),
+particularly [<span class="nt">Foo#g(bar)</span>][].
 </code></pre></div>
 </details>
 <p>We linked directly to an identifier here, and <em>mkdocstrings</em> knows which page it's on and automatically links that. See: <a href="../index.html#identifier-linking-syntax">identifier linking syntax</a>.</p>
