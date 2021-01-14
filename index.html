@@ -527,7 +527,7 @@
                 <h1 id="mkdocstrings-crystal">mkdocstrings-crystal<a class="headerlink" href="#mkdocstrings-crystal" title="Permanent link">#</a></h1>
 <p>Crystal language doc generator for <a href="https://www.mkdocs.org/">MkDocs</a>, via <a href="https://pawamoy.github.io/mkdocstrings/">mkdocstrings</a>.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code><span class="gp">$</span> pip install mkdocstrings-crystal
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip install mkdocstrings-crystal
 </code></pre></div>
 <p><a href="quickstart/index.html">Continue with <strong>quickstart</strong></a>.</p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
@@ -561,8 +561,8 @@
 <p>-- and in the output this will be replaced with generated API documentation for it, much like Crystal's own doc generator does.</p>
 <p>Learn more about this syntax: <a href="https://pawamoy.github.io/mkdocstrings/usage/">in <em>mkdocstrings</em> in general</a> (Crystal specifics are below).</p>
 <p>The auto-replacement, of course, happens as part of a normal MkDocs build process:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$</span> mkdocs build  <span class="c1"># generate from docs/ into site/</span>
-<span class="gp">$</span> mkdocs serve  <span class="c1"># live preview</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdocs build  <span class="c1"># generate from docs/ into site/</span>
+<span class="gp">$ </span>mkdocs serve  <span class="c1"># live preview</span>
 </code></pre></div>
 <h3 id="identifier-linking-syntax">Identifier linking syntax<a class="headerlink" href="#identifier-linking-syntax" title="Permanent link">#</a></h3>
 <p>The syntax for these "callouts" is almost exactly the same as in Crystal's own doc comments. As you may also know, if you <strong>mention an identifier in backticks within a doc comment (e.g. <code>`SomeClass#some_method`</code>)</strong>, Crystal's doc generator will cross-link to it. The same also works seamlessly here, and you don't need to change anything (other than possible edge cases).</p>

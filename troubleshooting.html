@@ -564,7 +564,7 @@
 <p>In a deeply nested nav, it is best to stick to naming every file as <code>index.md</code> and making it the only one per directory. Then all items get treated equally during sorting. Or you can just define the <code>nav</code> yourself explicitly.</p>
 <h2 id="it-takes-too-long-to-build-the-site">It takes too long to build the site<a class="headerlink" href="#it-takes-too-long-to-build-the-site" title="Permanent link">#</a></h2>
 <p>Yes, it's slow, especially for large codebases. The main thing, though, is that MkDocs was not optimized to handle sites with so so many pages. That is, <a href="https://github.com/mkdocs/mkdocs/pulls?q=is%3Apr+author%3Aoprypin+profile">until I optimized it</a>, but that hasn't made it into a release yet. Expect about a 2x speedup then. Or install the preview now:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$</span> pip install -U git+https://github.com/mkdocs/mkdocs.git@refs/pull/2272/head
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip install -U git+https://github.com/mkdocs/mkdocs.git@refs/pull/2272/head
 </code></pre></div>
 <h2 id="the-generated-documentation-does-not-look-good">The generated documentation does not look good<a class="headerlink" href="#the-generated-documentation-does-not-look-good" title="Permanent link">#</a></h2>
 <p>Note that only <a href="https://squidfunk.github.io/mkdocs-material/">mkdocs-material</a> theme is supported.</p>

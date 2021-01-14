@@ -548,7 +548,7 @@
   <span class="c1"># Description of *Bar*</span>
   <span class="k">class</span> <span class="nc">Bar</span>
     <span class="c1"># Description of *f*</span>
-    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="nb">Int32</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="n">Int32</span><span class="p">)</span>
     <span class="k">end</span>
   <span class="k">end</span>
 
@@ -565,7 +565,7 @@
 <p><a href="https://github.com/oprypin/mkdocstrings-crystal/tree/master/examples/migrated/">View the final file layout</a></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">#</a></h2>
 <p>The dependencies that we'll be using can be installed like this:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$</span> pip install mkdocs-material mkdocstrings-crystal mkdocs-gen-files mkdocs-literate-nav mkdocs-section-index
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip install mkdocs-material mkdocstrings-crystal mkdocs-gen-files mkdocs-literate-nav mkdocs-section-index
 </code></pre></div>
 <p>This assumes you have <a href="https://www.python.org/">Python</a> installed, with <code>pip</code> available.</p>
 <div class="admonition tip">
@@ -662,8 +662,8 @@ particularly [<span class="nt">Foo#g(bar)</span>][].
 <p>We linked directly to an identifier here, and <em>mkdocstrings</em> knows which page it's on and automatically links that. See: <a href="../index.html#identifier-linking-syntax">identifier linking syntax</a>.</p>
 <h2 id="view-the-site">View the site<a class="headerlink" href="#view-the-site" title="Permanent link">#</a></h2>
 <p>That's it -- we're ready!</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$</span> mkdocs build  <span class="c1"># generate from docs/ into site/</span>
-<span class="gp">$</span> mkdocs serve  <span class="c1"># live preview</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdocs build  <span class="c1"># generate from docs/ into site/</span>
+<span class="gp">$ </span>mkdocs serve  <span class="c1"># live preview</span>
 </code></pre></div>
 <h2 id="setting-up-navigation-long-term">Setting up navigation long-term<a class="headerlink" href="#setting-up-navigation-long-term" title="Permanent link">#</a></h2>
 <p>This is finally where the <em>literate-nav</em> plugin comes in. Eventually you'll want to define an order for your pages to appear in the navigation, but if you have so many generated API doc pages, that becomes infeasible. MkDocs doesn't have any way to infer only <em>parts</em> of the navigation, only all or nothing. So, let's start a nav file.</p>
