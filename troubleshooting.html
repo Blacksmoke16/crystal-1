@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://oprypin.github.io/mkdocstrings-crystal/troubleshooting.html">
       
       <link rel="shortcut icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.6">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.15aa0b43.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.cb6bc1d0.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.75751829.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.39b8e14a.min.css">
         
           
           
@@ -272,7 +272,6 @@
       
       
       
-
 
   
   
@@ -554,7 +553,6 @@
       
       
 
-
   
   
   
@@ -569,7 +567,6 @@
       
       
       
-
 
   
   
@@ -586,7 +583,6 @@
       
       
 
-
   
   
   
@@ -601,7 +597,6 @@
       
       
       
-
 
   
   
@@ -712,9 +707,8 @@
                 
                 <h1 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h1>
 <h2 id="types-arent-linkified-in-method-signatures-or-aliases">Types aren't linkified in method signatures or aliases<a class="headerlink" href="#types-arent-linkified-in-method-signatures-or-aliases" title="Permanent link">#</a></h2>
-<p>This works, but you need to use a <em>nightly</em> build of Crystal. Crystal has some recent improvements that haven't made it into a release yet (as of 0.35). The plugin needs those improvements, otherwise it gracefully degrades.</p>
-<p>If you have Crystal built locally, you might just <code>export PATH=/full/path/to/crystal/bin:$PATH</code> (as the plugin is hardcoded to use just <code>crystal</code>).</p>
-<p>If you don't want to bother, you can opt to just use nightly Crystal <a href="quickstart/ci.html">in CI, when the docs get auto-deployed</a> and assume that the links will work, even though you don't see them locally.</p>
+<p>Please make sure you're using the latest Crystal version - 0.36.0 at least. The plugin needs the included improvements, otherwise it gracefully degrades.</p>
+<p>Even if you haven't managed to get that version of Crystal locally, you can just rely on <a href="quickstart/ci.html">CI auto-deployment</a> and assume that the links will work, even though you won't see them locally.</p>
 <h2 id="the-navigation-sections-look-scattered">The navigation sections look scattered<a class="headerlink" href="#the-navigation-sections-look-scattered" title="Permanent link">#</a></h2>
 <p>Perhaps it's because you made a page <code>Foo.md</code> and separately <code>Foo/Bar.md</code>. MkDocs just doesn't see them as related in any way.</p>
 <p><a href="quickstart/migrate.html#really-preserving-the-urls">See also</a>.</p>
@@ -797,15 +791,15 @@
       
     </div>
     
-      <script src="assets/javascripts/vendor.93c04032.min.js"></script>
-      <script src="assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="assets/javascripts/vendor.53cc9318.min.js"></script>
+      <script src="assets/javascripts/bundle.e9c9f54f.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
           base: ".",
           features: ['navigation.tabs', 'navigation.expand'],
           search: Object.assign({
-            worker: "assets/javascripts/worker/search.8c7e0a7e.min.js"
+            worker: "assets/javascripts/worker/search.9c0e82ba.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
