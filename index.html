@@ -538,15 +538,16 @@
                 
                 
                 <h1 id="mkdocstrings-crystal">mkdocstrings-crystal<a class="headerlink" href="#mkdocstrings-crystal" title="Permanent link">#</a></h1>
-<p>Crystal language doc generator for <a href="https://www.mkdocs.org/">MkDocs</a>, via <a href="https://pawamoy.github.io/mkdocstrings/">mkdocstrings</a>.</p>
+<p><strong><a href="https://crystal-lang.org/">Crystal</a> language doc generator for <a href="https://www.mkdocs.org/">MkDocs</a>, via <a href="https://mkdocstrings.github.io/">mkdocstrings</a>.</strong></p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip install mkdocstrings-crystal
 </code></pre></div>
-<p><a href="quickstart/index.html">Continue with <strong>quickstart</strong></a>.</p>
+<p><a href="quickstart/index.html">Continue with <strong>quickstart</strong></a>.<br />
+Or use <a href="quickstart/migrate.html">the migration guide</a> for a low-effort transition from <code>crystal doc</code>.</p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
 <p>Crystal has <a href="https://crystal-lang.org/reference/using_the_compiler/#crystal-docs">its own easy-to-use generator of API documentation sites</a>, but it's very rigid, as it doesn't attempt to do anything other than API documentation, so <a href="https://crystal-lang.org/api/0.35.1/Process.html">these sites</a> end up being very isolated and prevent the author from presenting some kind of <em>story</em> about using their library.</p>
 <p>Instead, this plugin is all about that <em>story</em>. It's very inspiring to look at <a href="https://docs.python.org/3/library/subprocess.html">Python's documentation for <code>subprocess</code></a>, and hard to imagine a world in which this document is just an alphabetic dump of the functions in it.</p>
-<p>So (matching the <a href="https://pawamoy.github.io/mkdocstrings/usage/">idea behind <em>mkdocstrings</em></a> but for Crystal), this allows you to just write textual documentation in Markdown and, in the middle of it, mention any identifier of a Crystal type, method etc., and have its API documentation (signature and doc comment) printed out right there.</p>
+<p>So (matching the <a href="https://mkdocstrings.github.io/usage/">idea behind <em>mkdocstrings</em></a> but for Crystal), this allows you to just write textual documentation in Markdown and, in the middle of it, mention any identifier of a Crystal type, method etc., and have its API documentation (signature and doc comment) printed out right there.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
 <p>With <a href="https://www.mkdocs.org/">MkDocs</a>, add/merge this base config as your <em>mkdocs.yml</em>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">site_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">My Project</span>
@@ -572,14 +573,14 @@
 ::: Foo::CONSTANT
 </code></pre></div>
 <p>-- and in the output this will be replaced with generated API documentation for it, much like Crystal's own doc generator does.</p>
-<p>Learn more about this syntax: <a href="https://pawamoy.github.io/mkdocstrings/usage/">in <em>mkdocstrings</em> in general</a> (Crystal specifics are below).</p>
+<p>Learn more about this syntax: <a href="https://mkdocstrings.github.io/usage/">in <em>mkdocstrings</em> in general</a> (Crystal specifics are below).</p>
 <p>The auto-replacement, of course, happens as part of a normal MkDocs build process:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdocs build  <span class="c1"># generate from docs/ into site/</span>
 <span class="gp">$ </span>mkdocs serve  <span class="c1"># live preview</span>
 </code></pre></div>
 <h3 id="identifier-linking-syntax">Identifier linking syntax<a class="headerlink" href="#identifier-linking-syntax" title="Permanent link">#</a></h3>
 <p>The syntax for these "callouts" is almost exactly the same as in Crystal's own doc comments. As you may also know, if you <strong>mention an identifier in backticks within a doc comment (e.g. <code>`SomeClass#some_method`</code>)</strong>, Crystal's doc generator will cross-link to it. The same also works seamlessly here, and you don't need to change anything (other than possible edge cases).</p>
-<p>But another powerful feature of this plugin is that you can <strong><a href="https://pawamoy.github.io/mkdocstrings/usage/#cross-references">cross-reference</a> items like this <em>anywhere</em> on the site</strong>, not just in doc comments. But the syntax is <strong><code>[SomeClass#some_method][]</code></strong> instead. Or <code>[with custom text][SomeClass#some_method]</code>. Note, though, that currently this cross-reference syntax is quite rigid, and you need to specify the exact absolute identifier as <em>mkdocstrings-crystal</em> determines it. To find that out, you could click on the wanted item in the navigation and then copy the anchor part from the URL bar -- the part after (not including) <code>#</code>.</p>
+<p>But another powerful feature of this plugin is that you can <strong><a href="https://mkdocstrings.github.io/usage/#cross-references">cross-reference</a> items like this <em>anywhere</em> on the site</strong>, not just in doc comments. But the syntax is <strong><code>[SomeClass#some_method][]</code></strong> instead. Or <code>[with custom text][SomeClass#some_method]</code>. Note, though, that currently this cross-reference syntax is quite rigid, and you need to specify the exact absolute identifier as <em>mkdocstrings-crystal</em> determines it. To find that out, you could click on the wanted item in the navigation and then copy the anchor part from the URL bar -- the part after (not including) <code>#</code>.</p>
 <h2 id="usage-details">Usage details<a class="headerlink" href="#usage-details" title="Permanent link">#</a></h2>
 <p>We have been talking about seamlessly inserting Crystal documentation, but where is it coming from? The implementation actually still uses <code>crystal doc</code> generator but through <a href="https://github.com/crystal-lang/crystal/pull/4746">its JSON output</a>. So the requirement is the same: the source code that the doc comments and signatures are coming from is assumed to be somewhere under the <em>src/</em> directory. If that isn't appropriate, you can select the wanted entry files by passing them to <code>crystal doc</code>, as part of <a href="configuration.html#crystal_docs_flags"><code>crystal_docs_flags</code></a> (see "Custom source directories" <a href="showcase.html#athena-framework">in Showcase</a>).</p>
 <p>Continue to <a href="configuration.html">Configuration</a>.</p>
