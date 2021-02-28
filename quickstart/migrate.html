@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
       <link rel="stylesheet" href="../assets/style.css">
     
     
@@ -653,9 +655,13 @@
 <span class="k">for</span> <span class="n">typ</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">walk_types</span><span class="p">():</span>
     <span class="c1"># Use the file name &quot;Foo/Bar/index.md&quot;</span>
     <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;::&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;index.md&#39;</span><span class="p">])</span>
-    <span class="c1"># Make a file with the content &quot;::: Foo::Bar\n&quot;</span>
+    <span class="c1"># Make a file with the content &quot;# ::: Foo::Bar\n&quot;</span>
     <span class="k">with</span> <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;::: </span><span class="si">{</span><span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;# ::: </span><span class="si">{</span><span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1"># Link to the type itself when clicking the &quot;edit&quot; button on the page.</span>
+    <span class="k">if</span> <span class="n">typ</span><span class="o">.</span><span class="n">locations</span><span class="p">:</span>
+        <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">set_edit_path</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">typ</span><span class="o">.</span><span class="n">locations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
 </code></pre></div>
 </details>
 <p>This script is picked up to run seamlessly as part of the normal site build, because we had configured the <a href="https://github.com/oprypin/mkdocs-gen-files"><code>gen-files</code> plugin</a>, which is already explained above.</p>
@@ -710,9 +716,13 @@ particularly [<span class="nt">Foo#g(bar)</span>][].
 <span class="k">for</span> <span class="n">typ</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">walk_types</span><span class="p">():</span>
     <span class="c1"># Use the file name &quot;Foo/Bar.md&quot;</span>
 <span class="hll">    <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;::&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;.md&#39;</span>
-</span>    <span class="c1"># Make a file with the content &quot;::: Foo::Bar\n&quot;</span>
+</span>    <span class="c1"># Make a file with the content &quot;# ::: Foo::Bar\n&quot;</span>
     <span class="k">with</span> <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;::: </span><span class="si">{</span><span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;# ::: </span><span class="si">{</span><span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1"># Link to the type itself when clicking the &quot;edit&quot; button on the page</span>
+    <span class="k">if</span> <span class="n">typ</span><span class="o">.</span><span class="n">locations</span><span class="p">:</span>
+        <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">set_edit_path</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">typ</span><span class="o">.</span><span class="n">locations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
 
     <span class="c1"># Append to the nav: &quot;    * [Bar](Foo/Bar.md)&quot;</span>
 <span class="hll">    <span class="n">indent</span> <span class="o">=</span> <span class="s1">&#39;    &#39;</span> <span class="o">*</span> <span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;::&#39;</span><span class="p">)</span>

@@ -42,6 +42,8 @@
     
     
     
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
       <link rel="stylesheet" href="assets/style.css">
     
     
@@ -480,16 +482,24 @@
                   <h1>Styling</h1>
                 
                 <h2 id="recommended-styles">Recommended styles<a class="headerlink" href="#recommended-styles" title="Permanent link">#</a></h2>
-<p>Adding this styling to your site is <strong>strongly</strong> recommended, otherwise things may not look right. You can, of course, adapt and add more.</p>
+<p>Adding this styling to your site is recommended, otherwise things may not look right. You can, of course, adapt and add more.</p>
 <div class="admonition example">
-<p class="admonition-title">css/mkdocstrings.css</p>
+<p class="admonition-title">docs/css/mkdocstrings.css</p>
 <div class="highlight"><pre><span></span><code><span class="c">/* Indent and distinguish sub-items */</span>
 <span class="nt">div</span><span class="p">.</span><span class="nc">doc-contents</span><span class="p">:</span><span class="nd">not</span><span class="o">(</span><span class="p">.</span><span class="nc">first</span><span class="o">)</span> <span class="p">{</span>
   <span class="k">padding-left</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
   <span class="k">border-left</span><span class="p">:</span> <span class="mi">4</span><span class="kt">px</span> <span class="kc">solid</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">230</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="mi">230</span><span class="p">);</span>
 <span class="p">}</span>
-
-<span class="c">/* Prevent all-caps names in headings */</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">mkdocs.yml</p>
+<div class="highlight"><pre><span></span><code><span class="nt">extra_css</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">css/mkdocstrings.css</span>
+</code></pre></div>
+</div>
+<p>This is in addition to the mandatory style that <em>mkdocstrings-crystal</em> already inserts (just for reference):</p>
+<div class="highlight"><pre><span></span><code><span class="c">/* Prevent all-caps names in headings */</span>
 <span class="nt">h5</span><span class="p">.</span><span class="nc">doc-heading</span> <span class="p">{</span>
   <span class="k">text-transform</span><span class="p">:</span> <span class="kc">none</span> <span class="cp">!important</span><span class="p">;</span>
 <span class="p">}</span>
@@ -504,13 +514,6 @@
   <span class="k">color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="nv">--md-typeset-color</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-</div>
-<div class="admonition example">
-<p class="admonition-title">mkdocs.yml</p>
-<div class="highlight"><pre><span></span><code><span class="nt">extra_css</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">css/mkdocstrings.css</span>
-</code></pre></div>
-</div>
 <h2 id="custom-styles">Custom styles<a class="headerlink" href="#custom-styles" title="Permanent link">#</a></h2>
 <p>The doc items have consistently applied CSS classes. As of now, there is no separate documentation of what exactly they are. You are recommended to just <em>inspect</em> in the browser whenever you don't like the look of something and see how to reach it in CSS according to the markup.</p>
 <p>The above example is some inspiration. Also check out <a href="showcase.html#tourmaline">Showcase</a> for more.</p>
