@@ -461,34 +461,90 @@ Put these into the file <code>requirements.in</code>:</p>
 <span class="c1">#</span>
 <span class="c1">#    pip-compile requirements.in</span>
 <span class="c1">#</span>
-<span class="n">cached-property</span><span class="o">==</span><span class="mf">1.5.2</span>    <span class="c1"># via mkdocstrings-crystal</span>
-<span class="n">click</span><span class="o">==</span><span class="mf">7.1.2</span>              <span class="c1"># via mkdocs, nltk</span>
-<span class="n">future</span><span class="o">==</span><span class="mf">0.18.2</span>            <span class="c1"># via lunr</span>
-<span class="n">glob2</span><span class="o">==</span><span class="mf">0.7</span>                <span class="c1"># via mkdocs-literate-nav</span>
-<span class="n">jinja2</span><span class="o">==</span><span class="mf">2.11.3</span>            <span class="c1"># via mkdocs, mkdocstrings, mkdocstrings-crystal</span>
-<span class="n">joblib</span><span class="o">==</span><span class="mf">1.0.1</span>             <span class="c1"># via nltk</span>
-<span class="n">livereload</span><span class="o">==</span><span class="mf">2.6.3</span>         <span class="c1"># via mkdocs</span>
-<span class="n">lunr</span><span class="p">[</span><span class="n">languages</span><span class="p">]</span><span class="o">==</span><span class="mf">0.5.8</span>    <span class="c1"># via mkdocs</span>
-<span class="n">markdown</span><span class="o">==</span><span class="mf">3.3.4</span>           <span class="c1"># via mkdocs, mkdocs-autorefs, mkdocs-material, mkdocstrings, pymdown-extensions</span>
-<span class="n">markupsafe</span><span class="o">==</span><span class="mf">1.1.1</span>         <span class="c1"># via jinja2, mkdocstrings, mkdocstrings-crystal</span>
-<span class="n">mkdocs-autorefs</span><span class="o">==</span><span class="mf">0.1.1</span>    <span class="c1"># via mkdocstrings</span>
-<span class="n">mkdocs-gen-files</span><span class="o">==</span><span class="mf">0.3.0</span>   <span class="c1"># via -r requirements.in</span>
-<span class="n">mkdocs-literate-nav</span><span class="o">==</span><span class="mf">0.3.0</span>  <span class="c1"># via -r requirements.in</span>
-<span class="n">mkdocs-material-extensions</span><span class="o">==</span><span class="mf">1.0.1</span>  <span class="c1"># via mkdocs-material</span>
-<span class="n">mkdocs-material</span><span class="o">==</span><span class="mf">6.2.8</span>    <span class="c1"># via -r requirements.in, mkdocs-material-extensions, mkdocstrings-crystal</span>
-<span class="n">mkdocs-section-index</span><span class="o">==</span><span class="mf">0.2.3</span>  <span class="c1"># via -r requirements.in</span>
-<span class="n">mkdocs</span><span class="o">==</span><span class="mf">1.1.2</span>             <span class="c1"># via -r requirements.in, mkdocs-autorefs, mkdocs-gen-files, mkdocs-literate-nav, mkdocs-material, mkdocs-section-index, mkdocstrings</span>
-<span class="n">mkdocstrings-crystal</span><span class="o">==</span><span class="mf">0.3.0</span>  <span class="c1"># via -r requirements.in</span>
-<span class="n">mkdocstrings</span><span class="o">==</span><span class="mf">0.15.0</span>      <span class="c1"># via mkdocstrings-crystal</span>
-<span class="n">nltk</span><span class="o">==</span><span class="mf">3.5</span>                 <span class="c1"># via lunr</span>
-<span class="n">pygments</span><span class="o">==</span><span class="mf">2.8.0</span>           <span class="c1"># via mkdocs-material</span>
-<span class="n">pymdown-extensions</span><span class="o">==</span><span class="mf">8.1.1</span>  <span class="c1"># via mkdocs-material, mkdocstrings</span>
-<span class="n">pytkdocs</span><span class="o">==</span><span class="mf">0.11.0</span>          <span class="c1"># via mkdocstrings</span>
-<span class="n">pyyaml</span><span class="o">==</span><span class="mf">5.4.1</span>             <span class="c1"># via mkdocs</span>
-<span class="n">regex</span><span class="o">==</span><span class="mf">2020.11.13</span>         <span class="c1"># via nltk</span>
-<span class="n">six</span><span class="o">==</span><span class="mf">1.15.0</span>               <span class="c1"># via livereload, lunr</span>
-<span class="n">tornado</span><span class="o">==</span><span class="mf">6.1</span>              <span class="c1"># via livereload, mkdocs</span>
-<span class="n">tqdm</span><span class="o">==</span><span class="mf">4.58.0</span>              <span class="c1"># via nltk</span>
+<span class="n">cached-property</span><span class="o">==</span><span class="mf">1.5.2</span>
+    <span class="c1"># via mkdocstrings-crystal</span>
+<span class="n">click</span><span class="o">==</span><span class="mf">7.1.2</span>
+    <span class="c1"># via</span>
+    <span class="c1">#   mkdocs</span>
+    <span class="c1">#   nltk</span>
+<span class="n">future</span><span class="o">==</span><span class="mf">0.18.2</span>
+    <span class="c1"># via lunr</span>
+<span class="n">glob2</span><span class="o">==</span><span class="mf">0.7</span>
+    <span class="c1"># via mkdocs-literate-nav</span>
+<span class="n">jinja2</span><span class="o">==</span><span class="mf">2.11.3</span>
+    <span class="c1"># via</span>
+    <span class="c1">#   mkdocs</span>
+    <span class="c1">#   mkdocstrings</span>
+    <span class="c1">#   mkdocstrings-crystal</span>
+<span class="n">joblib</span><span class="o">==</span><span class="mf">1.0.1</span>
+    <span class="c1"># via nltk</span>
+<span class="n">livereload</span><span class="o">==</span><span class="mf">2.6.3</span>
+    <span class="c1"># via mkdocs</span>
+<span class="n">lunr</span><span class="p">[</span><span class="n">languages</span><span class="p">]</span><span class="o">==</span><span class="mf">0.5.8</span>
+    <span class="c1"># via mkdocs</span>
+<span class="n">markdown</span><span class="o">==</span><span class="mf">3.3.4</span>
+    <span class="c1"># via</span>
+    <span class="c1">#   mkdocs</span>
+    <span class="c1">#   mkdocs-autorefs</span>
+    <span class="c1">#   mkdocs-material</span>
+    <span class="c1">#   mkdocstrings</span>
+    <span class="c1">#   pymdown-extensions</span>
+<span class="n">markupsafe</span><span class="o">==</span><span class="mf">1.1.1</span>
+    <span class="c1"># via</span>
+    <span class="c1">#   jinja2</span>
+    <span class="c1">#   mkdocstrings</span>
+    <span class="c1">#   mkdocstrings-crystal</span>
+<span class="n">mkdocs-autorefs</span><span class="o">==</span><span class="mf">0.1.1</span>
+    <span class="c1"># via mkdocstrings</span>
+<span class="n">mkdocs-gen-files</span><span class="o">==</span><span class="mf">0.3.1</span>
+    <span class="c1"># via -r requirements.in</span>
+<span class="n">mkdocs-literate-nav</span><span class="o">==</span><span class="mf">0.3.0</span>
+    <span class="c1"># via -r requirements.in</span>
+<span class="n">mkdocs-material-extensions</span><span class="o">==</span><span class="mf">1.0.1</span>
+    <span class="c1"># via mkdocs-material</span>
+<span class="n">mkdocs-material</span><span class="o">==</span><span class="mf">7.0.3</span>
+    <span class="c1"># via</span>
+    <span class="c1">#   -r requirements.in</span>
+    <span class="c1">#   mkdocs-material-extensions</span>
+<span class="n">mkdocs-section-index</span><span class="o">==</span><span class="mf">0.2.3</span>
+    <span class="c1"># via -r requirements.in</span>
+<span class="n">mkdocs</span><span class="o">==</span><span class="mf">1.1.2</span>
+    <span class="c1"># via</span>
+    <span class="c1">#   -r requirements.in</span>
+    <span class="c1">#   mkdocs-autorefs</span>
+    <span class="c1">#   mkdocs-gen-files</span>
+    <span class="c1">#   mkdocs-literate-nav</span>
+    <span class="c1">#   mkdocs-material</span>
+    <span class="c1">#   mkdocs-section-index</span>
+    <span class="c1">#   mkdocstrings</span>
+<span class="n">mkdocstrings-crystal</span><span class="o">==</span><span class="mf">0.3.1</span>
+    <span class="c1"># via -r requirements.in</span>
+<span class="n">mkdocstrings</span><span class="o">==</span><span class="mf">0.15.0</span>
+    <span class="c1"># via mkdocstrings-crystal</span>
+<span class="n">nltk</span><span class="o">==</span><span class="mf">3.5</span>
+    <span class="c1"># via lunr</span>
+<span class="n">pygments</span><span class="o">==</span><span class="mf">2.8.0</span>
+    <span class="c1"># via mkdocs-material</span>
+<span class="n">pymdown-extensions</span><span class="o">==</span><span class="mf">8.1.1</span>
+    <span class="c1"># via</span>
+    <span class="c1">#   mkdocs-material</span>
+    <span class="c1">#   mkdocstrings</span>
+<span class="n">pytkdocs</span><span class="o">==</span><span class="mf">0.11.0</span>
+    <span class="c1"># via mkdocstrings</span>
+<span class="n">pyyaml</span><span class="o">==</span><span class="mf">5.4.1</span>
+    <span class="c1"># via mkdocs</span>
+<span class="n">regex</span><span class="o">==</span><span class="mf">2020.11.13</span>
+    <span class="c1"># via nltk</span>
+<span class="n">six</span><span class="o">==</span><span class="mf">1.15.0</span>
+    <span class="c1"># via</span>
+    <span class="c1">#   livereload</span>
+    <span class="c1">#   lunr</span>
+<span class="n">tornado</span><span class="o">==</span><span class="mf">6.1</span>
+    <span class="c1"># via</span>
+    <span class="c1">#   livereload</span>
+    <span class="c1">#   mkdocs</span>
+<span class="n">tqdm</span><span class="o">==</span><span class="mf">4.58.0</span>
+    <span class="c1"># via nltk</span>
 </code></pre></div>
 </details>
 <p>Now anyone (<a href="ci.html">including automation</a>) can install the exact same dependencies, and you can be sure the site will build as intended:</p>
