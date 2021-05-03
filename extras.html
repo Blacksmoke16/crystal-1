@@ -371,6 +371,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#callouts-extension" class="md-nav__link">
+    "callouts" extension
+  </a>
+  
+    <nav class="md-nav" aria-label=""callouts" extension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#admonition-styles" class="md-nav__link">
+    Admonition styles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#support-for-mkdocs-macros-plugin" class="md-nav__link">
     Support for MkDocs "macros" plugin
   </a>
@@ -470,6 +490,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#callouts-extension" class="md-nav__link">
+    "callouts" extension
+  </a>
+  
+    <nav class="md-nav" aria-label=""callouts" extension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#admonition-styles" class="md-nav__link">
+    Admonition styles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#support-for-mkdocs-macros-plugin" class="md-nav__link">
     Support for MkDocs "macros" plugin
   </a>
@@ -503,6 +543,139 @@
                 <h1 id="extras">Extras<a class="headerlink" href="#extras" title="Permanent link">#</a></h1>
 <h2 id="deduplicate-toc-extension">"deduplicate-toc" extension<a class="headerlink" href="#deduplicate-toc-extension" title="Permanent link">#</a></h2>
 <p>For most <a href="index.html#usage">usages it is recommended</a> to enable the "deduplicate-toc" Markdown extension, which comes bundled with <em>mkdocstrings-crystal</em>. It de-duplicates consecutive items that have the same title in the table of contents. This is important because Crystal can have multiple overloads of a method but in the ToC only their names are shown.</p>
+<h2 id="callouts-extension">"callouts" extension<a class="headerlink" href="#callouts-extension" title="Permanent link">#</a></h2>
+<p><em>mkdocstrings-crystal</em> auto-enables the <a href="https://github.com/oprypin/markdown-callouts/">"callouts" extension</a> for Markdown (only within doc comments' content), so you can use that syntax instead of the common <a href="https://python-markdown.github.io/extensions/admonition/">"admonition" extension</a>'s syntax.</p>
+<div class="admonition example">
+<p class="admonition-title">example.cr</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Frobs the bar</span>
+<span class="c1">#</span>
+<span class="c1"># DEPRECATED: Use `baz` instead.</span>
+<span class="k">def</span> <span class="nf">frob</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+</div>
+<p>You can also enable that extension for the whole site:</p>
+<div class="admonition example">
+<p class="admonition-title">mkdocs.yml</p>
+<div class="highlight"><pre><span></span><code><span class="nt">markdown_extensions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">callouts</span>
+</code></pre></div>
+</div>
+<h3 id="admonition-styles">Admonition styles<a class="headerlink" href="#admonition-styles" title="Permanent link">#</a></h3>
+<p>In addition to the <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">usual admonition styles</a>, <em>mkdocstrings-crystal</em> injects styling for the Material theme to enable the following admonition kinds, used <a href="https://crystal-lang.org/reference/syntax_and_semantics/documenting_code.html#admonitions">in Crystal documentation</a>:</p>
+<style>
+/* Prevent all-caps names in headings */
+h5.doc-heading {
+  text-transform: none !important;
+}
+
+/* [View source] links don't have brackets by default */
+a.doc-source-link::before {
+  content: "[";
+  color: var(--md-typeset-color);
+}
+a.doc-source-link::after {
+  content: "]";
+  color: var(--md-typeset-color);
+}
+
+/* Adaptation of https://crystal-lang.org/reference/syntax_and_semantics/documenting_code.html#admonitions to mkdocs-material */
+
+:root {
+    /* Icons from https://github.com/Templarian/MaterialDesign/tree/e42f3f41dd46bc033f11c0e5eed7fb742af6e74e/svg */
+    /* format-list-checkbox */
+    --md-admonition-icon--todo: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,19V17H8V19H21M21,13V11H8V13H21M8,7H21V5H8V7M4,5V7H6V5H4M3,5A1,1 0 0,1 4,4H6A1,1 0 0,1 7,5V7A1,1 0 0,1 6,8H4A1,1 0 0,1 3,7V5M4,11V13H6V11H4M3,11A1,1 0 0,1 4,10H6A1,1 0 0,1 7,11V13A1,1 0 0,1 6,14H4A1,1 0 0,1 3,13V11M4,17V19H6V17H4M3,17A1,1 0 0,1 4,16H6A1,1 0 0,1 7,17V19A1,1 0 0,1 6,20H4A1,1 0 0,1 3,19V17Z" /></svg>');
+    /* close-octagon */
+    --md-admonition-icon--deprecated: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.27,3L3,8.27V15.73L8.27,21H15.73L21,15.73V8.27L15.73,3M8.41,7L12,10.59L15.59,7L17,8.41L13.41,12L17,15.59L15.59,17L12,13.41L8.41,17L7,15.59L10.59,12L7,8.41" /></svg>');
+}
+
+/* Based on https://github.com/squidfunk/mkdocs-material/blob/b3c0163b3b6b6e4d2cb4d50fbd535018042c4970/src/assets/stylesheets/main/extensions/markdown/_admonition.scss */
+
+/* "TODO": custom icon */
+.md-typeset .todo>.admonition-title:before, .md-typeset .todo>summary:before {
+    -webkit-mask-image: var(--md-admonition-icon--todo);
+    mask-image: var(--md-admonition-icon--todo);
+}
+
+/* "FIXME": "bug" icon, "failure" color */
+.md-typeset .admonition.fixme, .md-typeset details.fixme {
+    border-color: #ff5252
+}
+.md-typeset .fixme>.admonition-title, .md-typeset .fixme>summary {
+    background-color: rgba(255, 82, 82, .1);
+    border-color: #ff5252
+}
+.md-typeset .fixme>.admonition-title:before, .md-typeset .fixme>summary:before {
+    background-color: #ff5252;
+    -webkit-mask-image: var(--md-admonition-icon--bug);
+    mask-image: var(--md-admonition-icon--bug);
+    mask-repeat: no-repeat;
+    mask-size: contain
+}
+
+/* "DEPRECATED": custom icon, "warning" color */
+.md-typeset .admonition.deprecated, .md-typeset details.deprecated {
+    border-color: #ff9100
+}
+.md-typeset .deprecated>.admonition-title, .md-typeset .deprecated>summary {
+    background-color: rgba(255, 145, 0, .1);
+    border-color: #ff9100
+}
+.md-typeset .deprecated>.admonition-title:before, .md-typeset .deprecated>summary:before {
+    background-color: #ff9100;
+    -webkit-mask-image: var(--md-admonition-icon--deprecated);
+    mask-image: var(--md-admonition-icon--deprecated);
+    mask-repeat: no-repeat;
+    mask-size: contain
+}
+
+/* "OPTIMIZE": "danger" icon, "question" color */
+.md-typeset .admonition.optimize, .md-typeset details.optimize {
+    border-color: #64dd17
+}
+.md-typeset .optimize>.admonition-title, .md-typeset .optimize>summary {
+    background-color: rgba(100, 221, 23, .1);
+    border-color: #64dd17
+}
+.md-typeset .optimize>.admonition-title:before, .md-typeset .optimize>summary:before {
+    background-color: #64dd17;
+    -webkit-mask-image: var(--md-admonition-icon--danger);
+    mask-image: var(--md-admonition-icon--danger);
+    mask-repeat: no-repeat;
+    mask-size: contain
+}
+
+.admonition p>code {
+    display: inline-block;
+    width: 49%;
+}
+</style>
+
+<div class="admonition todo">
+<p class="admonition-title">Todo</p>
+<p><code>TODO:</code> <code>!!! todo</code></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>NOTE:</code> <code>!!! note</code></p>
+</div>
+<div class="admonition bug">
+<p class="admonition-title">Bug</p>
+<p><code>BUG:</code> <code>!!! bug</code></p>
+</div>
+<div class="admonition fixme">
+<p class="admonition-title">Fixme</p>
+<p><code>FIXME:</code> <code>!!! fixme</code></p>
+</div>
+<div class="admonition deprecated">
+<p class="admonition-title">Deprecated</p>
+<p><code>DEPRECATED:</code> <code>!!! deprecated</code></p>
+</div>
+<div class="admonition optimize">
+<p class="admonition-title">Optimize</p>
+<p><code>OPTIMIZE:</code> <code>!!! optimize</code></p>
+</div>
+<p>Both the default styles and the extra styles work with both the <a href="https://github.com/oprypin/markdown-callouts/">"callouts" extension</a> (write them in all-uppercase) and the <a href="https://python-markdown.github.io/extensions/admonition/">"admonition" extension</a> (write them in all-lowercase).</p>
 <h2 id="support-for-mkdocs-macros-plugin">Support for <a href="https://github.com/fralau/mkdocs_macros_plugin">MkDocs "macros" plugin</a><a class="headerlink" href="#support-for-mkdocs-macros-plugin" title="Permanent link">#</a></h2>
 <p><em>Without</em> support, you have to access the doc root as</p>
 <div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">set</span> <span class="nv">crystal</span> <span class="o">=</span> <span class="nv">config</span><span class="o">[</span><span class="s1">&#39;plugins&#39;</span><span class="o">][</span><span class="s1">&#39;mkdocstrings&#39;</span><span class="o">]</span><span class="nv">.get_handler</span><span class="o">(</span><span class="s1">&#39;crystal&#39;</span><span class="o">)</span><span class="nv">.collector.root</span> <span class="cp">%}</span><span class="x"></span>

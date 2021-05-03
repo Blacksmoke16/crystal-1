@@ -516,6 +516,72 @@
   <span class="k">content</span><span class="p">:</span> <span class="s2">&quot;]&quot;</span><span class="p">;</span>
   <span class="k">color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="nv">--md-typeset-color</span><span class="p">);</span>
 <span class="p">}</span>
+
+<span class="c">/* Adaptation of https://crystal-lang.org/reference/syntax_and_semantics/documenting_code.html#admonitions to mkdocs-material */</span>
+
+<span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+    <span class="c">/* Icons from https://github.com/Templarian/MaterialDesign/tree/e42f3f41dd46bc033f11c0e5eed7fb742af6e74e/svg */</span>
+    <span class="c">/* format-list-checkbox */</span>
+    <span class="nv">--md-admonition-icon--todo</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="s1">&#39;data:image/svg+xml;charset=utf-8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M21,19V17H8V19H21M21,13V11H8V13H21M8,7H21V5H8V7M4,5V7H6V5H4M3,5A1,1 0 0,1 4,4H6A1,1 0 0,1 7,5V7A1,1 0 0,1 6,8H4A1,1 0 0,1 3,7V5M4,11V13H6V11H4M3,11A1,1 0 0,1 4,10H6A1,1 0 0,1 7,11V13A1,1 0 0,1 6,14H4A1,1 0 0,1 3,13V11M4,17V19H6V17H4M3,17A1,1 0 0,1 4,16H6A1,1 0 0,1 7,17V19A1,1 0 0,1 6,20H4A1,1 0 0,1 3,19V17Z&quot; /&gt;&lt;/svg&gt;&#39;</span><span class="p">);</span>
+    <span class="c">/* close-octagon */</span>
+    <span class="nv">--md-admonition-icon--deprecated</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="s1">&#39;data:image/svg+xml;charset=utf-8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;path d=&quot;M8.27,3L3,8.27V15.73L8.27,21H15.73L21,15.73V8.27L15.73,3M8.41,7L12,10.59L15.59,7L17,8.41L13.41,12L17,15.59L15.59,17L12,13.41L8.41,17L7,15.59L10.59,12L7,8.41&quot; /&gt;&lt;/svg&gt;&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c">/* Based on https://github.com/squidfunk/mkdocs-material/blob/b3c0163b3b6b6e4d2cb4d50fbd535018042c4970/src/assets/stylesheets/main/extensions/markdown/_admonition.scss */</span>
+
+<span class="c">/* &quot;TODO&quot;: custom icon */</span>
+<span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">todo</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="p">:</span><span class="nd">before</span><span class="o">,</span> <span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">todo</span><span class="o">&gt;</span><span class="nt">summary</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span>
+    <span class="kp">-webkit-</span><span class="k">mask-image</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="nv">--md-admonition-icon--todo</span><span class="p">);</span>
+    <span class="k">mask-image</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="nv">--md-admonition-icon--todo</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c">/* &quot;FIXME&quot;: &quot;bug&quot; icon, &quot;failure&quot; color */</span>
+<span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">admonition</span><span class="p">.</span><span class="nc">fixme</span><span class="o">,</span> <span class="p">.</span><span class="nc">md-typeset</span> <span class="nt">details</span><span class="p">.</span><span class="nc">fixme</span> <span class="p">{</span>
+    <span class="k">border-color</span><span class="p">:</span> <span class="mh">#ff5252</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">fixme</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="o">,</span> <span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">fixme</span><span class="o">&gt;</span><span class="nt">summary</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mf">.1</span><span class="p">);</span>
+    <span class="k">border-color</span><span class="p">:</span> <span class="mh">#ff5252</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">fixme</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="p">:</span><span class="nd">before</span><span class="o">,</span> <span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">fixme</span><span class="o">&gt;</span><span class="nt">summary</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#ff5252</span><span class="p">;</span>
+    <span class="kp">-webkit-</span><span class="k">mask-image</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="nv">--md-admonition-icon--bug</span><span class="p">);</span>
+    <span class="k">mask-image</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="nv">--md-admonition-icon--bug</span><span class="p">);</span>
+    <span class="k">mask-repeat</span><span class="p">:</span> <span class="kc">no-repeat</span><span class="p">;</span>
+    <span class="k">mask-size</span><span class="p">:</span> <span class="kc">contain</span>
+<span class="p">}</span>
+
+<span class="c">/* &quot;DEPRECATED&quot;: custom icon, &quot;warning&quot; color */</span>
+<span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">admonition</span><span class="p">.</span><span class="nc">deprecated</span><span class="o">,</span> <span class="p">.</span><span class="nc">md-typeset</span> <span class="nt">details</span><span class="p">.</span><span class="nc">deprecated</span> <span class="p">{</span>
+    <span class="k">border-color</span><span class="p">:</span> <span class="mh">#ff9100</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">deprecated</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="o">,</span> <span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">deprecated</span><span class="o">&gt;</span><span class="nt">summary</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">145</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">.1</span><span class="p">);</span>
+    <span class="k">border-color</span><span class="p">:</span> <span class="mh">#ff9100</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">deprecated</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="p">:</span><span class="nd">before</span><span class="o">,</span> <span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">deprecated</span><span class="o">&gt;</span><span class="nt">summary</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#ff9100</span><span class="p">;</span>
+    <span class="kp">-webkit-</span><span class="k">mask-image</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="nv">--md-admonition-icon--deprecated</span><span class="p">);</span>
+    <span class="k">mask-image</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="nv">--md-admonition-icon--deprecated</span><span class="p">);</span>
+    <span class="k">mask-repeat</span><span class="p">:</span> <span class="kc">no-repeat</span><span class="p">;</span>
+    <span class="k">mask-size</span><span class="p">:</span> <span class="kc">contain</span>
+<span class="p">}</span>
+
+<span class="c">/* &quot;OPTIMIZE&quot;: &quot;danger&quot; icon, &quot;question&quot; color */</span>
+<span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">admonition</span><span class="p">.</span><span class="nc">optimize</span><span class="o">,</span> <span class="p">.</span><span class="nc">md-typeset</span> <span class="nt">details</span><span class="p">.</span><span class="nc">optimize</span> <span class="p">{</span>
+    <span class="k">border-color</span><span class="p">:</span> <span class="mh">#64dd17</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">optimize</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="o">,</span> <span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">optimize</span><span class="o">&gt;</span><span class="nt">summary</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">221</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mf">.1</span><span class="p">);</span>
+    <span class="k">border-color</span><span class="p">:</span> <span class="mh">#64dd17</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">optimize</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="p">:</span><span class="nd">before</span><span class="o">,</span> <span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">optimize</span><span class="o">&gt;</span><span class="nt">summary</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#64dd17</span><span class="p">;</span>
+    <span class="kp">-webkit-</span><span class="k">mask-image</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="nv">--md-admonition-icon--danger</span><span class="p">);</span>
+    <span class="k">mask-image</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="nv">--md-admonition-icon--danger</span><span class="p">);</span>
+    <span class="k">mask-repeat</span><span class="p">:</span> <span class="kc">no-repeat</span><span class="p">;</span>
+    <span class="k">mask-size</span><span class="p">:</span> <span class="kc">contain</span>
+<span class="p">}</span>
 </code></pre></div>
 <h2 id="custom-styles">Custom styles<a class="headerlink" href="#custom-styles" title="Permanent link">#</a></h2>
 <p>The doc items have consistently applied CSS classes. As of now, there is no separate documentation of what exactly they are. You are recommended to just <em>inspect</em> in the browser whenever you don't like the look of something and see how to reach it in CSS according to the markup.</p>
