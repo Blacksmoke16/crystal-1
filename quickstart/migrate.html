@@ -6,13 +6,15 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Crystal language doc generator for MkDocs, via mkdocstrings">
+      
       
       
       
         <link rel="canonical" href="https://mkdocstrings.github.io/crystal/quickstart/migrate.html">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.3">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
     
     
       
@@ -20,10 +22,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.e35208c4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ca7ac06f.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
         
           
           
@@ -48,6 +50,8 @@
     
     
       
+
+
     
     
   </head>
@@ -80,7 +84,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="mkdocstrings-crystal" class="md-header__button md-logo" aria-label="mkdocstrings-crystal" data-md-component="logo">
+    <a href="../index.html" title="mkdocstrings-crystal" class="md-header__button md-logo" aria-label="mkdocstrings-crystal" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -173,7 +177,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="mkdocstrings-crystal" class="md-nav__button md-logo" aria-label="mkdocstrings-crystal" data-md-component="logo">
+    <a href="../index.html" title="mkdocstrings-crystal" class="md-nav__button md-logo" aria-label="mkdocstrings-crystal" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -650,15 +654,15 @@
 <span class="kn">import</span> <span class="nn">mkdocs_gen_files</span>
 
 <span class="c1"># Get the documentation root object</span>
-<span class="n">root</span> <span class="o">=</span> <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;plugins&#39;</span><span class="p">][</span><span class="s1">&#39;mkdocstrings&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get_handler</span><span class="p">(</span><span class="s1">&#39;crystal&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">collector</span><span class="o">.</span><span class="n">root</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;plugins&quot;</span><span class="p">][</span><span class="s2">&quot;mkdocstrings&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get_handler</span><span class="p">(</span><span class="s2">&quot;crystal&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">collector</span><span class="o">.</span><span class="n">root</span>
 
 <span class="c1"># For each type (e.g. &quot;Foo::Bar&quot;)</span>
 <span class="k">for</span> <span class="n">typ</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">walk_types</span><span class="p">():</span>
     <span class="c1"># Use the file name &quot;Foo/Bar/index.md&quot;</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;::&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;index.md&#39;</span><span class="p">])</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;::&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;index.md&quot;</span><span class="p">])</span>
     <span class="c1"># Make a file with the content &quot;# ::: Foo::Bar\n&quot;</span>
-    <span class="k">with</span> <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;# ::: </span><span class="si">{</span><span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;# ::: </span><span class="si">{</span><span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 
     <span class="c1"># Link to the type itself when clicking the &quot;edit&quot; button on the page.</span>
     <span class="k">if</span> <span class="n">typ</span><span class="o">.</span><span class="n">locations</span><span class="p">:</span>
@@ -708,26 +712,29 @@ particularly [<span class="nt">Foo#g(bar)</span>][].
 <span class="kn">import</span> <span class="nn">mkdocs_gen_files</span>
 
 <span class="c1"># Get the documentation root object</span>
-<span class="n">root</span> <span class="o">=</span> <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;plugins&#39;</span><span class="p">][</span><span class="s1">&#39;mkdocstrings&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get_handler</span><span class="p">(</span><span class="s1">&#39;crystal&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">collector</span><span class="o">.</span><span class="n">root</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;plugins&quot;</span><span class="p">][</span><span class="s2">&quot;mkdocstrings&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get_handler</span><span class="p">(</span><span class="s2">&quot;crystal&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">collector</span><span class="o">.</span><span class="n">root</span>
 
-<span class="c1"># Start a navigation file (to be filled as we go along)</span>
-<span class="hll"><span class="n">nav</span> <span class="o">=</span> <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;SUMMARY.md&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="c1"># Start a navigation collection (to be filled as we go along)</span>
+<span class="hll"><span class="n">nav</span> <span class="o">=</span> <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">Nav</span><span class="p">()</span>
 </span>
 <span class="c1"># For each type (e.g. &quot;Foo::Bar&quot;)</span>
 <span class="k">for</span> <span class="n">typ</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">walk_types</span><span class="p">():</span>
     <span class="c1"># Use the file name &quot;Foo/Bar.md&quot;</span>
-<span class="hll">    <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;::&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;.md&#39;</span>
+<span class="hll">    <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;::&quot;</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;.md&quot;</span>
 </span>    <span class="c1"># Make a file with the content &quot;# ::: Foo::Bar\n&quot;</span>
-    <span class="k">with</span> <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;# ::: </span><span class="si">{</span><span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;# ::: </span><span class="si">{</span><span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 
     <span class="c1"># Link to the type itself when clicking the &quot;edit&quot; button on the page</span>
     <span class="k">if</span> <span class="n">typ</span><span class="o">.</span><span class="n">locations</span><span class="p">:</span>
         <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">set_edit_path</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">typ</span><span class="o">.</span><span class="n">locations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
 
     <span class="c1"># Append to the nav: &quot;    * [Bar](Foo/Bar.md)&quot;</span>
-<span class="hll">    <span class="n">indent</span> <span class="o">=</span> <span class="s1">&#39;    &#39;</span> <span class="o">*</span> <span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;::&#39;</span><span class="p">)</span>
-</span><span class="hll">    <span class="nb">print</span><span class="p">(</span><span class="n">indent</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;* [</span><span class="si">{</span><span class="n">typ</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">](</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">nav</span><span class="p">)</span>
+<span class="hll">    <span class="n">nav</span><span class="p">[</span><span class="n">typ</span><span class="o">.</span><span class="n">abs_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;::&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">filename</span>
+</span>
+<span class="c1"># Append the nav to a &quot;literate nav&quot; file</span>
+<span class="hll"><span class="k">with</span> <span class="n">mkdocs_gen_files</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;SUMMARY.md&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">nav_file</span><span class="p">:</span>
+</span><span class="hll">    <span class="n">nav_file</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">nav</span><span class="o">.</span><span class="n">build_literate_nav</span><span class="p">())</span>
 </span></code></pre></div>
 </details>
                 
@@ -748,7 +755,8 @@ particularly [<span class="nt">Foo#g(bar)</span>][].
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="index.html" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quickstart" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -763,7 +771,8 @@ particularly [<span class="nt">Foo#g(bar)</span>][].
         </a>
       
       
-        <a href="python-dependencies.html" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="python-dependencies.html" class="md-footer__link md-footer__link--next" aria-label="Next: Managing Python dependencies" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -798,10 +807,10 @@ particularly [<span class="nt">Foo#g(bar)</span>][].
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.4ea5477f.min.js"></script>
+      <script src="../assets/javascripts/bundle.76f349be.min.js"></script>
       
     
   </body>
